@@ -47,7 +47,13 @@ const Input = () => {
   inputRef.current?.focus();
   const handleSend = async () => {
     setEmoji(false);
-    setText("");
+    setText(text.trim()); // Trim extra spaces
+
+    if (text === "" && !img) {
+      // If text is empty and no image is selected, do not proceed
+      return;
+    }
+
     if (img) {
       const storageRef = ref(storage, uuid());
 
@@ -84,21 +90,23 @@ const Input = () => {
 
     await updateDoc(doc(db, "userChats", currentUser.uid), {
       [data.chatId + ".lastMessage"]: {
-        text,
+        text: text.trim(), // Trim extra spaces
       },
       [data.chatId + ".date"]: serverTimestamp(),
     });
 
     await updateDoc(doc(db, "userChats", data.user.uid), {
       [data.chatId + ".lastMessage"]: {
-        text,
+        text: text.trim(), // Trim extra spaces
       },
       [data.chatId + ".date"]: serverTimestamp(),
     });
 
-    // setText("");
-    // setImg(null);
+    // Clear input fields
+    setImg(null);
+    setText("");
   };
+
   return (
     <>
       <div className="input">
