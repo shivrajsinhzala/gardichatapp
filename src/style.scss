@@ -202,6 +202,10 @@
     }
     .chat {
       flex: 2;
+      img {
+        height: 16px;
+        cursor: pointer;
+      }
 
       .chatInfo {
         height: 50px;
@@ -211,6 +215,11 @@
         justify-content: space-between;
         padding: 10px;
         color: lightgray;
+
+        .Name {
+          margin-right: auto;
+          margin-left: 8px;
+        }
       }
 
       .chatIcons {
