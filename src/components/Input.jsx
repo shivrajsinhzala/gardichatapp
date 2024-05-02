@@ -26,12 +26,11 @@ const Input = () => {
 
   // const [dispEmoji, setDispEmoji] = useState(false);
 
-  const handleEmojiClick = (event, emojiObject) => {
-    // setEmoji(emojiObject.target);
-    // setText(text + emojiObject.target);
-    setText(text?.concat(event.emoji));
-    console.log("event:- ", event.emoji);
-    // setText(text?.concat(emojiObject.emoji));
+  const handleEmojiClick = (emojiObject, event) => {
+    setText((prevText) =>
+      prevText ? prevText + emojiObject.emoji : emojiObject.emoji
+    );
+    console.log("emoji added", emojiObject.emoji);
     inputRef.current.focus();
   };
 
@@ -39,6 +38,7 @@ const Input = () => {
     if (e.key === "Enter") {
       handleSend();
       setImg(null);
+      console.log("enter clicked");
       setText("");
     }
     // console.log("key pressed");
@@ -47,6 +47,7 @@ const Input = () => {
   inputRef.current?.focus();
   const handleSend = async () => {
     setEmoji(false);
+    console.log("message sent");
     setText(text.trim()); // Trim extra spaces
 
     if (text === "" && !img) {
@@ -103,8 +104,6 @@ const Input = () => {
     });
 
     // Clear input fields
-    setImg(null);
-    setText("");
   };
 
   return (
@@ -116,6 +115,7 @@ const Input = () => {
               <EmojiPicker
                 height={300}
                 width={662}
+                previewConfig={{ showPreview: false }}
                 searchDisabled={true}
                 onEmojiClick={handleEmojiClick}
               />

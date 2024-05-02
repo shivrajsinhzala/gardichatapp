@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
+import { v4 as uuidv4 } from "uuid";
 
 const Chats = () => {
   const [chats, setChats] = useState([]);
@@ -35,7 +36,7 @@ const Chats = () => {
         .map((chat) => (
           <div
             className="userChat"
-            key={chat[0]}
+            key={uuidv4()}
             onClick={() => handleSelect(chat[1].userInfo)}
           >
             <img src={chat[1].userInfo.photoURL} alt="" />
