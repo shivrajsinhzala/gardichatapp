@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
+import { collectionGroup } from "firebase/firestore";
 
 export const ChatContext = createContext();
 
@@ -73,12 +74,13 @@ export const ChatContextProvider = ({ children }) => {
   const INITIAL_STATE = {
     chatId: "null",
     user: {},
-    messages: [], // Include messages in the initial state
+    messages: [],
   };
 
   const chatReducer = (state, action) => {
     switch (action.type) {
       case "CHANGE_USER":
+        console.log("user changed");
         return {
           ...state,
           user: action.payload,
@@ -88,6 +90,7 @@ export const ChatContextProvider = ({ children }) => {
               : action.payload.uid + currentUser.uid,
         };
       case "CLEAR_CHAT":
+        console.log("chat cleared");
         return INITIAL_STATE; // Reset chatId, user, and messages to initial state
       default:
         return state;

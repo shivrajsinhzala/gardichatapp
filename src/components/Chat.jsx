@@ -103,7 +103,7 @@ const Chat = () => {
 
   // Function to handle back button click
   const handleBack = () => {
-    // Dispatch action to clear chat and user data
+    <Messages />;
     dispatch({ type: "CLEAR_CHAT" });
   };
 
@@ -112,12 +112,16 @@ const Chat = () => {
       {data.user ? (
         <>
           <div className="chatInfo">
-            <img
-              src={Back}
-              alt=""
-              className="back"
-              onClick={handleBack} // Call handleBack function on click
-            />
+            {data.chatId !== "null" ? (
+              <img
+                src={Back}
+                alt=""
+                className="back"
+                onClick={handleBack} // Call handleBack function on click
+              />
+            ) : (
+              <></>
+            )}
             <span className="Name">{data.user.displayName}</span>
             <div className="chatIcons">
               <img src={Cam} alt="" />

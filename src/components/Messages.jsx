@@ -9,16 +9,23 @@ const Messages = () => {
   const { data } = useContext(ChatContext);
 
   useEffect(() => {
+    if (data.chatId === "null") {
+      setMessages([]);
+      console.log("message is null", messages);
+    }
+
     const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
       doc.exists() && setMessages(doc.data().messages);
     });
+
+    console.log(data.chatId);
 
     return () => {
       unSub();
     };
   }, [data.chatId]);
 
-  console.log(messages)
+  // console.log(messages);
 
   return (
     <div className="messages">
