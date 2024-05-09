@@ -109,7 +109,13 @@ const Chat = () => {
 
   return (
     <div className="chat">
-      {data.user ? (
+      {data.chatId == "null" ? (
+        <>
+          <center className="cntr">
+            <h1 className="c">Select a user to chat</h1>
+          </center>
+        </>
+      ) : (
         <>
           <div className="chatInfo">
             {data.chatId !== "null" ? (
@@ -132,10 +138,6 @@ const Chat = () => {
           <Messages />
           <Input />
         </>
-      ) : (
-        <h1>
-          <center>Click on user to Chat</center>
-        </h1>
       )}
     </div>
   );
