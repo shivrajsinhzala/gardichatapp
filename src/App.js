@@ -1,10 +1,12 @@
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -14,7 +16,7 @@ function App() {
       return <Navigate to="/login" />;
     }
 
-    return children
+    return children;
   };
 
   return (
@@ -25,6 +27,18 @@ function App() {
             index
             element={
               <ProtectedRoute>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                  theme="light"
+                />
                 <Home />
               </ProtectedRoute>
             }

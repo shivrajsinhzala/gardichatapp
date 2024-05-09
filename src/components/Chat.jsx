@@ -97,9 +97,24 @@ import Back from "../img/back.png";
 import Messages from "./Messages";
 import Input from "./Input";
 import { ChatContext } from "../context/ChatContext";
+import { ToastContainer, toast } from "react-toastify";
 
 const Chat = () => {
   const { data, dispatch } = useContext(ChatContext);
+
+  const showErrorMsg = () => {
+    console.log("clicked");
+    toast.warn("this feature is not yet available!!", {
+      position: "bottom-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  };
 
   // Function to handle back button click
   const handleBack = () => {
@@ -108,38 +123,40 @@ const Chat = () => {
   };
 
   return (
-    <div className="chat">
-      {data.chatId == "null" ? (
-        <>
-          <center className="cntr">
-            <h1 className="c">Select a user to continue chat</h1>
-          </center>
-        </>
-      ) : (
-        <>
-          <div className="chatInfo">
-            {data.chatId !== "null" ? (
-              <img
-                src={Back}
-                alt=""
-                className="back"
-                onClick={handleBack} // Call handleBack function on click
-              />
-            ) : (
-              <></>
-            )}
-            <span className="Name">{data.user.displayName}</span>
-            <div className="chatIcons">
-              <img src={Cam} alt="" />
-              <img src={Add} alt="" />
-              <img src={More} alt="" />
+    <>
+      <div className="chat">
+        {data.chatId == "null" ? (
+          <>
+            <center className="cntr">
+              <h1 className="c">Select a user to continue chat</h1>
+            </center>
+          </>
+        ) : (
+          <>
+            <div className="chatInfo">
+              {data.chatId !== "null" ? (
+                <img
+                  src={Back}
+                  alt=""
+                  className="back"
+                  onClick={handleBack} // Call handleBack function on click
+                />
+              ) : (
+                <></>
+              )}
+              <span className="Name">{data.user.displayName}</span>
+              <div className="chatIcons">
+                <img src={Cam} alt="" onClick={showErrorMsg} />
+                <img src={Add} alt="" onClick={showErrorMsg} />
+                <img src={More} alt="" onClick={showErrorMsg} />
+              </div>
             </div>
-          </div>
-          <Messages />
-          <Input />
-        </>
-      )}
-    </div>
+            <Messages />
+            <Input />
+          </>
+        )}
+      </div>
+    </>
   );
 };
 
