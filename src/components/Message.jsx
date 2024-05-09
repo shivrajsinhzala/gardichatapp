@@ -30,7 +30,12 @@ const Message = ({ message }) => {
       </div>
       <div className="messageContent">
         {message.text ? <p>{message.text}</p> : null}
-        {message.img && <img src={message.img} alt="" />}
+        {/* {message.img && <img src={message.img} alt="" />} */}
+        {message.img && (
+          <a className="attachment" href={message.img} download>
+            Download Attachment
+          </a>
+        )}
       </div>
     </div>
   );
