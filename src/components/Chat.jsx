@@ -112,7 +112,7 @@ const Chat = () => {
       {data.chatId == "null" ? (
         <>
           <center className="cntr">
-            <h1 className="c">Select a user to chat</h1>
+            <h1 className="c">Select a user to continue chat</h1>
           </center>
         </>
       ) : (
