@@ -4,19 +4,18 @@ import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCS9ry3Up9lM32H9zJZgMDJPT9bOl7mScY",
+  apiKey: "AIzaSyCj3sDeFSrZQjvI0zFcH7AlqkuWlLrC_7g",
 
-  authDomain: "gardichat-545ea.firebaseapp.com",
+  authDomain: "gardichat-b534e.firebaseapp.com",
 
-  projectId: "gardichat-545ea",
+  projectId: "gardichat-b534e",
 
-  storageBucket: "gardichat-545ea.appspot.com",
+  storageBucket: "gardichat-b534e.appspot.com",
 
-  messagingSenderId: "896221885541",
+  messagingSenderId: "53066428550",
 
-  appId: "1:896221885541:web:348e2c5ee147cd84c4428c",
-};
-
+  appId: "1:53066428550:web:0420cd8699b336dd59a107",
+}
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
