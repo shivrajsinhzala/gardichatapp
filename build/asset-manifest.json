@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.47b29a0e.css",
-    "main.js": "/static/js/main.81ec585b.js",
-    "static/media/smile.png": "/static/media/smile.ac21fba52fad407f9033.png",
-    "index.html": "/index.html",
-    "main.47b29a0e.css.map": "/static/css/main.47b29a0e.css.map",
-    "main.81ec585b.js.map": "/static/js/main.81ec585b.js.map"
+    "main.css": "/shivrajsinhzala/gardichatapp/static/css/main.47b29a0e.css",
+    "main.js": "/shivrajsinhzala/gardichatapp/static/js/main.54a69ff5.js",
+    "static/media/smile.png": "/shivrajsinhzala/gardichatapp/static/media/smile.ac21fba52fad407f9033.png",
+    "index.html": "/shivrajsinhzala/gardichatapp/index.html",
+    "main.47b29a0e.css.map": "/shivrajsinhzala/gardichatapp/static/css/main.47b29a0e.css.map",
+    "main.54a69ff5.js.map": "/shivrajsinhzala/gardichatapp/static/js/main.54a69ff5.js.map"
   },
   "entrypoints": [
     "static/css/main.47b29a0e.css",
-    "static/js/main.81ec585b.js"
+    "static/js/main.54a69ff5.js"
   ]
 }
