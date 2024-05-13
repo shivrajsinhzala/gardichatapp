@@ -22,6 +22,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route
+          path="/shivrajsinhzala/gardichatapp"
+          element={<Navigate to="/" />}
+        />
+        <Route path="*" element={<>PAGE NOT FOUND</>} />
         <Route path="/">
           <Route
             index
